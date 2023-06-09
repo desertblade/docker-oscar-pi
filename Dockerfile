@@ -18,7 +18,7 @@ RUN apt-get update -y && \
 
 
 RUN apt-get update -y && \
-    wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-Debian11_amd64.deb && \
+    wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-RasPiOS-11_arm64.deb && \
    apt install -y /tmp/oscar.deb && \
    rm /tmp/oscar.deb && \
    rm -rf /var/lib/apt/lists
