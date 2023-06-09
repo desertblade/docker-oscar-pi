@@ -1,3 +1,5 @@
+# WORK IN PROGRESS -- DOES NOT WORK -- DON'USE -- THAT IS ALL
+
 # Docker Image for Open Source CPAP Analysis Reporter (OSCAR)
 
 [![Docker Image Version (latest semver)](https://img.shields.io/docker/v/rogerrum/docker-oscar)](https://hub.docker.com/r/rogerrum/docker-oscar/tags)
