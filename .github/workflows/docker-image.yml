@@ -20,6 +20,5 @@ jobs:
         with:
           arch: armv6
           distro: bullseye
-
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        
+          run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
