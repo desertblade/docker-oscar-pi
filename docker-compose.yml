@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  oscar:
+    image: oscar
+    container_name: oscar
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    volumes:
+      - /home/pi/oscar-data:/data:rw
+      - /home/pi/AirSense10-Data:/SDCARD:rw
