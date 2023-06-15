@@ -24,14 +24,13 @@ RUN apt-get update -y && \
     rm -rf /var/lib/apt/lists
 
 
-RUN if [ "$TARGETARCH" = "arm64" ]; then \
+RUN if [ "${TARGETARCH}" = "arm64" ]; then \
         wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-RasPiOS-11_arm64.deb; \
     else \
         wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-RasPiOS-11_armhf.deb; \
     fi
 
 RUN apt-get update -y && \
-    wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-RasPiOS-11_arm64.deb &&  \
     apt install -y /tmp/oscar.deb && \
     rm /tmp/oscar.deb && \
     rm -rf /var/lib/apt/lists
