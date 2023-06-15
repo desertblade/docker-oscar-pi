@@ -27,4 +27,4 @@ jobs:
           context: .
           platforms: linux/arm64/v8, linux/arm/v7
           push: true
-          tags: user/app:latest
+          tags: desertblade/oscar-pi:latest
