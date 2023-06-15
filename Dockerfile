@@ -4,9 +4,9 @@ WORKDIR /src
 ARG TARGETPLATFORM
 ARG TARGETARCH
 ARG TARGETVARIANT
-RUN printf "I'm building for TARGETPLATFORM=${TARGETPLATFORM}" \
-    && printf ", TARGETARCH=${TARGETARCH}" \
-    && printf ", TARGETVARIANT=${TARGETVARIANT} \n" \
+RUN printf '..%s..' "I'm building for TARGETPLATFORM=${TARGETPLATFORM}" \
+    && printf '..%s..' ", TARGETARCH=${TARGETARCH}" \
+    && printf '..%s..' ", TARGETVARIANT=${TARGETVARIANT} \n" 
     
 RUN go mod init build && \
     go get github.com/geek1011/easy-novnc@v1.1.0 && \
@@ -25,7 +25,7 @@ RUN apt-get update -y && \
 
 
 RUN apt-get update -y && \
-    if [ "$TARGETARCH" = "arm64" ]; then \
+    if [ "${TARGETARCH}" = "arm64" ]; then \
         wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-RasPiOS-11_arm64.deb && ; \
     else \
         wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-RasPiOS-11_armhf.deb && ; \
