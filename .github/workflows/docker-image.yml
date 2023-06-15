@@ -28,3 +28,9 @@ jobs:
           platforms: linux/arm64/v8, linux/arm/v7
           push: true
           tags: desertblade/oscar-pi:latest
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: desertblade/oscar-p
