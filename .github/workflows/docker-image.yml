@@ -26,5 +26,5 @@ jobs:
         with:
           context: .
           platforms: linux/arm64/v8, linux/arm/v7
-          push: false
+          push: true
           tags: user/app:latest
