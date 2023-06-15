@@ -14,6 +14,13 @@ RUN go mod init build && \
 
 FROM debian:bullseye
 
+ARG TARGETPLATFORM
+ARG TARGETARCH
+ARG TARGETVARIANT
+RUN printf '..%s..' "I'm building for TARGETPLATFORM=${TARGETPLATFORM}" \
+    && printf '..%s..' ", TARGETARCH=${TARGETARCH}" \
+    && printf '..%s..' ", TARGETVARIANT=${TARGETVARIANT} \n" 
+
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends openbox tigervnc-standalone-server supervisor gosu && \
     rm -rf /var/lib/apt/lists && \
