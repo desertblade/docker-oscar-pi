@@ -1,4 +1,4 @@
-# WORK IN PROGRESS -- DOES NOT WORK -- DON'USE -- THAT IS ALL
+# WORK IN PROGRESS -- DOES NOT WORK -- DON'T USE -- THAT IS ALL
 
 # Docker Image for Open Source CPAP Analysis Reporter (OSCAR)
 
