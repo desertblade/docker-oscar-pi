@@ -25,18 +25,17 @@ RUN apt-get update -y && \
 
 
 RUN if [ "${TARGETARCH}" = "arm64" ]; then \
-        apt-get update -y && \
-        wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-RasPiOS-11_arm64.deb &&  \
-        apt install -y /tmp/oscar.deb && \
-       rm /tmp/oscar.deb && \
-       rm -rf /var/lib/apt/lists
+        wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-RasPiOS-11_arm64.deb \
     else \
-        apt-get update -y && \
-        wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-RasPiOS-11_armhf.deb &&  \
-        apt install -y /tmp/oscar.deb && \
-        rm /tmp/oscar.deb && \
-        rm -rf /var/lib/apt/lists
+        wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-RasPiOS-11_armhf.deb \
     fi
+
+RUN apt-get update -y && \
+    wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-RasPiOS-11_arm64.deb &&  \
+    apt install -y /tmp/oscar.deb && \
+    rm /tmp/oscar.deb && \
+    rm -rf /var/lib/apt/lists
+
 
 COPY --from=easy-novnc-build /bin/easy-novnc /usr/local/bin/
 COPY menu.xml /etc/xdg/openbox/
