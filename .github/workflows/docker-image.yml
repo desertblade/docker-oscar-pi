@@ -21,13 +21,8 @@ jobs:
             ghcr.io/desertblade/oscar-pi
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=schedule
-            type=ref,event=branch
-            type=ref,event=pr
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=sha
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
@@ -51,12 +46,6 @@ jobs:
           push: true
           tags:  ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-#           tags: desertblade/oscar-pi:latest
-          # tags: |
-          #   desertblade/oscar-pi:latest
-          #   desertblade/oscar-pi:${{ steps.meta.outputs.tags }}
-          #   ghcr.io/desertblade/oscar-pi:latest
-          #   ghcr.io/desertblade/oscar-pi:${{ steps.meta.outputs.tags }}
 
       - name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
