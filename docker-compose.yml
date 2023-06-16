@@ -1,11 +1,11 @@
 version: '3.3'
 services:
   oscar:
-    image: oscar
+    image: desertblade/oscar-pi
     container_name: oscar
     restart: unless-stopped
     ports:
       - 8080:8080
     volumes:
       - /home/pi/oscar-data:/data:rw
-      - /home/pi/AirSense10-Data:/SDCARD:rw
+      - /home/pi/SDCARD:/SDCARD:rw

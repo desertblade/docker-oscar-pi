@@ -1,13 +1,6 @@
 FROM golang:bullseye AS easy-novnc-build
 WORKDIR /src
 
-ARG TARGETPLATFORM
-ARG TARGETARCH
-ARG TARGETVARIANT
-RUN printf '..%s..' "I'm building for TARGETPLATFORM=${TARGETPLATFORM}" \
-    && printf '..%s..' ", TARGETARCH=${TARGETARCH}" \
-    && printf '..%s..' ", TARGETVARIANT=${TARGETVARIANT} \n" 
-    
 RUN go mod init build && \
     go get github.com/geek1011/easy-novnc@v1.1.0 && \
     go build -o /bin/easy-novnc github.com/geek1011/easy-novnc
