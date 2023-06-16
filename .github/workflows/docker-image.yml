@@ -2,9 +2,8 @@ name: Docker Image CI
 
 on:
   push:
-    branches:
-      - "main"
-      
+    tags:
+      - "v*.*.*"
       
 jobs:
   docker:
@@ -27,7 +26,8 @@ jobs:
           context: .
           platforms: linux/arm64/v8, linux/arm/v7
           push: true
-          tags: desertblade/oscar-pi:latest
+#           tags: desertblade/oscar-pi:latest
+          tags: ${{ steps.meta.outputs.tags }}
       - name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
         with:
