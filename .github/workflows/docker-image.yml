@@ -49,14 +49,14 @@ jobs:
           context: .
           platforms: linux/arm64/v8, linux/arm/v7
           push: true
-          # tags:  ${{ steps.metadata.outputs.tags }}
-          # labels: ${{ steps.meta.outputs.labels }}
+          tags:  ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 #           tags: desertblade/oscar-pi:latest
-          tags: |
-            desertblade/oscar-pi:latest
-            desertblade/oscar-pi:${{ steps.meta.outputs.tags }}
-            ghcr.io/desertblade/oscar-pi:latest
-            ghcr.io/desertblade/oscar-pi:${{ steps.meta.outputs.tags }}
+          # tags: |
+          #   desertblade/oscar-pi:latest
+          #   desertblade/oscar-pi:${{ steps.meta.outputs.tags }}
+          #   ghcr.io/desertblade/oscar-pi:latest
+          #   ghcr.io/desertblade/oscar-pi:${{ steps.meta.outputs.tags }}
 
       - name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
