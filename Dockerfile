@@ -39,6 +39,10 @@ RUN apt-get update -y && \
 COPY --from=easy-novnc-build /bin/easy-novnc /usr/local/bin/
 COPY menu.xml /etc/xdg/openbox/
 COPY supervisord.conf /etc/
+
+# Adding Script to download from ezShare and setting up th Cron
+COPY ezShareDownloader.sh /opt/src/scripts/ezShareDownloader.sh
+RUN echo ' */5  *  *  *  * /opt/src/scripts/ezShareDownloader.sh' >> /etc/crontabs/root
 EXPOSE 8080
 
 RUN groupadd --gid 1000 app && \
