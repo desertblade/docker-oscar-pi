@@ -13,10 +13,12 @@ A Raspberry Pi Docker image for **[OSCAR](https://www.sleepfiles.com/OSCAR/)** t
 
 Cron job is set to run every 30 minutes from 6-9 am to pull files from an [ezShare](https://www.aliexpress.us/item/2255800453813062.html) wifi SD card adpater.
 
+Once everything is set up point your browser to http://192.168.xx.xx:8080 
+
 Repository name in Docker Hub: **[desertblade/oscar-pi](https://hub.docker.com/r/desertblade/oscar-pi/)**  
 Published via **automated build** mechanism  
 
-![img.png](https://raw.githubusercontent.com/desertblade/oscar-pi/main/.github/demo-img.png)
+![img.png](https://raw.githubusercontent.com/desertblade/docker-oscar-pi/main/.github/demo-img.png)
 
 ## Pre-reqs
 
