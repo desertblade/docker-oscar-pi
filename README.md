@@ -1,22 +1,22 @@
-# WORK IN PROGRESS -- DOES NOT WORK -- DON'T USE -- THAT IS ALL
-
 # Raspberry Pi Docker Image for Open Source CPAP Analysis Reporter (OSCAR)
 
-[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/rogerrum/docker-oscar)](https://hub.docker.com/r/rogerrum/docker-oscar/tags)
-[![license](https://img.shields.io/github/license/rogerrum/docker-oscar)](https://github.com/rogerrum/docker-oscar/blob/main/LICENSE)
-[![DockerHub pulls](https://img.shields.io/docker/pulls/rogerrum/docker-oscar.svg)](https://hub.docker.com/r/rogerrum/docker-oscar/)
-[![DockerHub stars](https://img.shields.io/docker/stars/rogerrum/docker-oscar.svg)](https://hub.docker.com/r/rogerrum/docker-oscar/)
-[![GitHub stars](https://img.shields.io/github/stars/rogerrum/docker-oscar.svg)](https://github.com/rogerrum/docker-oscar)
-[![Contributors](https://img.shields.io/github/contributors/rogerrum/docker-oscar.svg)](https://github.com/rogerrum/docker-oscar/graphs/contributors)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/desertblade/oscar-pi)](https://hub.docker.com/r/desertblade/oscar-pi/tags)
+[![license](https://img.shields.io/github/license/desertblade/oscar-pi)](https://github.com/desertblade/oscar-pi/blob/main/LICENSE)
+[![DockerHub pulls](https://img.shields.io/docker/pulls/desertblade/oscar-pi.svg)](https://hub.docker.com/r/desertblade/oscar-pi/)
+[![DockerHub stars](https://img.shields.io/docker/stars/desertblade/oscar-pi.svg)](https://hub.docker.com/r/desertblade/oscar-pi/)
+[![GitHub stars](https://img.shields.io/github/stars/desertblade/oscar-pi.svg)](https://github.com/desertblade/oscar-pi)
+[![Contributors](https://img.shields.io/github/contributors/desertblade/oscar-pi.svg)](https://github.com/desertblade/oscar-pi/graphs/contributors)
 
 [![Docker Image CI](https://github.com/desertblade/docker-oscar-pi/actions/workflows/docker-image.yml/badge.svg)](https://github.com/desertblade/docker-oscar-pi/actions/workflows/docker-image.yml)
 
 A Raspberry Pi Docker image for **[OSCAR](https://www.sleepfiles.com/OSCAR/)** to run inside Docker container and access it remotely using web browser. Includes script to pull data from an ezShare wifi card, so no need to pull the SD Card out of the CPAP machine!
 
-Repository name in Docker Hub: **[rogerrum/docker-oscar](https://hub.docker.com/r/rogerrum/docker-oscar/)**  
+Cron job is set to run every 30 minutes from 6-9 am to pull files from an [ezShare](https://www.aliexpress.us/item/2255800453813062.html) wifi SD card adpater.
+
+Repository name in Docker Hub: **[desertblade/oscar-pi](https://hub.docker.com/r/desertblade/oscar-pi/)**  
 Published via **automated build** mechanism  
 
-![img.png](https://raw.githubusercontent.com/rogerrum/docker-oscar/main/.github/demo-img.png)
+![img.png](https://raw.githubusercontent.com/desertblade/oscar-pi/main/.github/demo-img.png)
 
 ## Pre-reqs
 
@@ -34,7 +34,7 @@ Move existing configuration over:
 mv /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf 
 ```
 
-Create wlan1 wifi configuration (I copy wlan0)
+Create wlan1 wifi configuration (I copy over wlan0 as a starting point)
 ```
 cp /etc/wpa_supplicant/wpa_supplicant-wlan0.conf /etc/wpa_supplicant/wpa_supplicant-wlan1.conf 
 ```
@@ -70,7 +70,8 @@ To simply do a quick and dirty run of the Oscar container:
 docker run \
     -d --rm \
     --name oscar \
-    -v=${pwd}/oscar-data:/data \
+    -v=/home/pi/oscar-data:/data:rw \
+    -v=/home/pi/SDCARD:/SDCARD:rw \
     --publish=8080:8080 \
      desertblade/oscar-pi
   
@@ -90,26 +91,29 @@ optionally use [docker-compose](https://docs.docker.com/compose/) to set up your
 image. Just download the repo and run it like so:
 
 ```yaml
-version: '3.8'
+version: '3.3'
 services:
   oscar:
-    image: desertblade/oscar-pi:latest
+    image: desertblade/oscar-pi
     container_name: oscar
     restart: unless-stopped
     ports:
       - 8080:8080
     volumes:
-      - ./oscar-data:/data:rw
+      - /home/pi/oscar-data:/data:rw
+      - /home/pi/SDCARD:/SDCARD:rw
 ```
 
 ## Issues
-https://github.com/rogerrum/docker-oscar/issues
+https://github.com/desertblade/oscar-pi/issues
 
-## Contribute
+## Contributers
+The following people created 80%+ of the source. I just modified it to support Raspberry Pi with the script to copy files over.
 
+Initial Dockerfile creation was done by [Roger Rumao ](https://github.com/rogerrum) --- https://github.com/rogerrum/docker-oscar
+ezShare script created by [Biorn1950](https://github.com/Biorn1950) --- https://github.com/Biorn1950/EzShare-SdcardWifi-Downloader
 
-
-Software Licensing Information
+## Software Licensing Information
 ------------------------------
 DOCKER-OSCAR is released under the GNU GPL v3 License. Please see below for a note on giving correct attribution
 in redistribution of derivatives.

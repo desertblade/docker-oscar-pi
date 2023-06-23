@@ -55,8 +55,9 @@ EXPOSE 8080
 
 RUN groupadd --gid 1000 app && \
     useradd --home-dir /data --shell /bin/bash --uid 1000 --gid 1000 app && \
-    mkdir -p /data
+    mkdir -p /data \
+    mkdir -p /SDCARD
 
 #VOLUME /data
 
-CMD ["sh", "-c", "cron && chown app:app /data /dev/stdout && exec gosu app supervisord"]
+CMD ["sh", "-c", "cron && chown app:app /data /dev/stdout /SDCARD && exec gosu app supervisord"]
