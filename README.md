@@ -5,7 +5,8 @@
 [![DockerHub pulls](https://img.shields.io/docker/pulls/desertblade/oscar-pi.svg)](https://hub.docker.com/r/desertblade/oscar-pi/)
 [![DockerHub stars](https://img.shields.io/docker/stars/desertblade/oscar-pi.svg)](https://hub.docker.com/r/desertblade/oscar-pi/)
 [![GitHub stars](https://img.shields.io/github/stars/desertblade/docker-oscar-pi.svg)](https://github.com/desertblade/docker-oscar-pi)
-[![Contributors](https://img.shields.io/github/contributors/desertblade/docker-oscar-pi.svg)](https://github.com/desertblade/docker-oscar-pi/graphs/contributors)[![Docker Image CI](https://github.com/desertblade/docker-oscar-pi/actions/workflows/docker-image.yml/badge.svg)](https://github.com/desertblade/docker-oscar-pi/actions/workflows/docker-image.yml)
+[![Contributors](https://img.shields.io/github/contributors/desertblade/docker-oscar-pi.svg)](https://github.com/desertblade/docker-oscar-pi/graphs/contributors)
+[![Docker Image CI](https://github.com/desertblade/docker-oscar-pi/actions/workflows/docker-image.yml/badge.svg)](https://github.com/desertblade/docker-oscar-pi/actions/workflows/docker-image.yml)
 
 A Raspberry Pi Docker image for **[OSCAR](https://www.sleepfiles.com/OSCAR/)** to run inside Docker container and access it remotely using web browser. Includes script to pull data from an ezShare wifi card, so no need to pull the SD Card out of the CPAP machine!
 
