@@ -23,7 +23,6 @@ RUN apt-get update -y && \
     apt-get install -y --no-install-recommends lxterminal nano wget openssh-client rsync ca-certificates xdg-utils htop tar xzip gzip bzip2 zip unzip && \
     rm -rf /var/lib/apt/lists
 
-
 RUN if [ "${TARGETARCH}" = "arm64" ]; then \
         wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-RasPiOS-11_arm64.deb; \
     else \
@@ -34,7 +33,6 @@ RUN apt-get update -y && \
     apt install -y /tmp/oscar.deb && \
     rm /tmp/oscar.deb && \
     rm -rf /var/lib/apt/lists
-
 
 COPY --from=easy-novnc-build /bin/easy-novnc /usr/local/bin/
 COPY menu.xml /etc/xdg/openbox/

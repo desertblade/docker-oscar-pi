@@ -34,7 +34,7 @@ fileList=".log|.crc|.tgt|.dat|.edf|DATALOG|SETTINGS"
                                                                                                       
 ########### Don't touch the rest ########### ########### ########### ########### ########### ########### ###########
 
-# Removing STR.edf file, its recreated nightly and sometimes the extension is wrong
+# Removing STR.edf file, sometimes the extension is ALL CAPS and won't import into OSCAR
 rm ${mainDir}STR.edf 2>/dev/null
 
 ########### some variables ###########
@@ -237,5 +237,5 @@ else
     echo "Completed in $SECONDS seconds"
 fi
 
-# Sometimes the extension is all caps for this file and Oscar does not like that
+# Sometimes the extension is ALL CAPS for this file and Oscar does not like that
 mv ${mainDir}STR.EDF ${mainDir}STR.edf 2>/dev/null
