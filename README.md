@@ -1,6 +1,6 @@
 # Raspberry Pi Docker Image for Open Source CPAP Analysis Reporter (OSCAR)
 
-[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/desertblade/oscar-pi)](https://hub.docker.com/r/desertblade/oscar-pi/tags)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/desertblade/oscar-pi?arch=arm64)](https://hub.docker.com/r/desertblade/oscar-pi/tags)
 [![license](https://img.shields.io/github/license/desertblade/docker-oscar-pi)](https://github.com/desertblade/oscar-pi/blob/main/LICENSE)
 [![DockerHub pulls](https://img.shields.io/docker/pulls/desertblade/oscar-pi.svg)](https://hub.docker.com/r/desertblade/oscar-pi/)
 [![DockerHub stars](https://img.shields.io/docker/stars/desertblade/oscar-pi.svg)](https://hub.docker.com/r/desertblade/oscar-pi/)
@@ -120,14 +120,12 @@ Initial Dockerfile creation was done by [Roger Rumao ](https://github.com/rogerr
 ezShare script created by [Biorn1950](https://github.com/Biorn1950) --- https://github.com/Biorn1950/EzShare-SdcardWifi-Downloader
 
 ## Software Licensing Information
-------------------------------
 DOCKER-OSCAR is released under the GNU GPL v3 License. Please see below for a note on giving correct attribution
 in redistribution of derivatives.
 
 It is built using Qt SDK (Open Source Edition), available from http://qt.io.
 
-Redistribution of derivatives ( a note added by Mark Watins )
------------------------------
+### Redistribution of derivatives ( a note added by Mark Watins )
 Mark Watkins created this software to help lessen the exploitation of others. Seeing his work being used to exploit others
 is incredibly un-motivational, and incredibly disrespectful of all the work he put into this project.
 
