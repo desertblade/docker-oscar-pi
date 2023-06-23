@@ -15,7 +15,7 @@ RUN printf '..%s..' "I'm building for TARGETPLATFORM=${TARGETPLATFORM}" \
     && printf '..%s..' ", TARGETVARIANT=${TARGETVARIANT} \n" 
 
 RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends openbox tigervnc-standalone-server supervisor gosu && \
+    apt-get install -y --no-install-recommends openbox tigervnc-standalone-server supervisor gosu cron && \
     rm -rf /var/lib/apt/lists && \
     mkdir -p /usr/share/desktop-directories
 
@@ -42,7 +42,19 @@ COPY supervisord.conf /etc/
 
 # Adding Script to download from ezShare and setting up th Cron
 COPY ezShareDownloader.sh /opt/src/scripts/ezShareDownloader.sh
-RUN echo ' */5  *  *  *  * /opt/src/scripts/ezShareDownloader.sh' >> /etc/crontabs/root
+RUN chmod 777 /opt/src/scripts/ezShareDownloader.sh
+COPY cronEzshare /etc/cron.d/cronEzshare
+ 
+# Give execution rights on the cron job
+RUN chmod 0644 /etc/cron.d/cronEzshare
+
+# Apply cron job
+RUN crontab /etc/cron.d/cronEzshare
+
+# Create the log file to be able to run tail
+RUN touch /var/log/cron.log
+ 
+
 EXPOSE 8080
 
 RUN groupadd --gid 1000 app && \
@@ -51,4 +63,4 @@ RUN groupadd --gid 1000 app && \
 
 #VOLUME /data
 
-CMD ["sh", "-c", "chown app:app /data /dev/stdout && exec gosu app supervisord"]
+CMD ["sh", "-c", "chown app:app /data /dev/stdout && exec gosu app supervisord && cron && tail -f /var/log/cron.log"]
