@@ -33,17 +33,17 @@ Assuming you are all set with you primary wifi network here is how I configured 
 
 Move existing configuration over:
 ```
-mv /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf 
+$ mv /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-wlan0.conf 
 ```
 
 Create wlan1 wifi configuration (I copy over wlan0 as a starting point)
 ```
-cp /etc/wpa_supplicant/wpa_supplicant-wlan0.conf /etc/wpa_supplicant/wpa_supplicant-wlan1.conf 
+$ cp /etc/wpa_supplicant/wpa_supplicant-wlan0.conf /etc/wpa_supplicant/wpa_supplicant-wlan1.conf 
 ```
 
 Edit the file:
 ```
-nano /etc/wpa_supplicant/wpa_supplicant-wlan1.conf 
+$ nano /etc/wpa_supplicant/wpa_supplicant-wlan1.conf 
 ```
 
 
@@ -62,14 +62,14 @@ I find the version of Docker included in Rasbpberry Pi's repos are fine.
 
 From the command line run the following commands:
 ```
-sudo apt update
-sudo apt install docker-compose
+$ sudo apt update
+$ sudo apt install docker-compose
 ```
 
 ## Docker Run
 To simply do a quick and dirty run of the Oscar container:
 ```
-docker run \
+sudo docker run \
     -d --rm \
     --name oscar \
     -v=/home/pi/oscar-data:/data:rw \
@@ -80,11 +80,11 @@ docker run \
 ```
 To stop the container simply run:
 ```
-$ docker stop oscar
+$ sudo docker stop oscar
 ```
 To remove the container simply run:
 ```
-$ docker rm oscar
+$ sudo docker rm oscar
 ```
 
 ## Docker Compose
@@ -104,6 +104,11 @@ services:
     volumes:
       - /home/pi/oscar-data:/data:rw
       - /home/pi/SDCARD:/SDCARD:rw
+```
+
+To start the container run:
+```
+$ sudo docker-compose up -d
 ```
 
 ## Issues
