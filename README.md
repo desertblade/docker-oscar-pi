@@ -1,6 +1,6 @@
 # Raspberry Pi Docker Image for Open Source CPAP Analysis Reporter (OSCAR)
 
-[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/desertblade/oscar-pi)](https://hub.docker.com/r/desertblade/oscar-pi/tags)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/desertblade/oscar-pi/latest?arch=arm64)](https://hub.docker.com/r/desertblade/oscar-pi/tags)
 [![license](https://img.shields.io/github/license/desertblade/docker-oscar-pi)](https://github.com/desertblade/docker-oscar-pi/blob/main/LICENSE)
 [![DockerHub pulls](https://img.shields.io/docker/pulls/desertblade/oscar-pi.svg)](https://hub.docker.com/r/desertblade/oscar-pi/)
 [![DockerHub stars](https://img.shields.io/docker/stars/desertblade/oscar-pi.svg)](https://hub.docker.com/r/desertblade/oscar-pi/)
