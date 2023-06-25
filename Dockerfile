@@ -41,7 +41,7 @@ COPY supervisord.conf /etc/
 # Adding Script to download from ezShare and setting up th Cron
 COPY ezShareDownloader.sh /opt/src/scripts/ezShareDownloader.sh
 RUN chmod 777 /opt/src/scripts/ezShareDownloader.sh
-RUN echo '0,30 6,7,8 * * * /opt/src/scripts/ezShareDownloader.sh 2>&1' >> /etc/cron.d/ezShare
+RUN echo '30 7 * * * /opt/src/scripts/ezShareDownloader.sh 2>&1' >> /etc/cron.d/ezShare
  
 # Give execution rights on the cron job
 RUN chmod 0644 /etc/cron.d/ezShare
