@@ -9,3 +9,5 @@ services:
     volumes:
       - /home/pi/oscar-data:/data:rw
       - /home/pi/SDCARD:/SDCARD:rw
+    environment:
+      TZ: "America/Los_Angeles"
