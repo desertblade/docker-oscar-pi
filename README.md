@@ -89,7 +89,7 @@ $ sudo docker rm oscar
 ## Docker Compose
 If you don't want to type out these long **Docker** commands, you could
 optionally use [docker-compose](https://docs.docker.com/compose/) to set up your
-image. Just download the repo and run it like so:
+image.
 
 ```yaml
 version: '3.3'
@@ -103,6 +103,8 @@ services:
     volumes:
       - /home/pi/oscar-data:/data:rw
       - /home/pi/SDCARD:/SDCARD:rw
+    environment:
+      TZ: "America/Los_Angeles"
 ```
 
 To start the container run:
