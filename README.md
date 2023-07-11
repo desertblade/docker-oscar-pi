@@ -124,7 +124,7 @@ $ sudo docker-compose up -d
 
 To pull latest image and upgrade the docker instance:
 ```
-$ docker-compose pull && docker-compose up -d
+$ sudo docker-compose pull && sudo docker-compose up -d
 ```
 
 ## Issues
