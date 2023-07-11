@@ -6,4 +6,4 @@ if [ ${CRON_HOUR} ]
     chmod 0644 /etc/cron.d/ezShare
     crontab /etc/cron.d/ezShare
     cron
-fi
+fi 
