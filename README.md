@@ -91,6 +91,13 @@ If you don't want to type out these long **Docker** commands, you could
 optionally use [docker-compose](https://docs.docker.com/compose/) to set up your
 image. Just download the repo and run it like so:
 
+Or you could Donwload the docker-compose only:
+```
+$ wget https://raw.githubusercontent.com/desertblade/docker-oscar-pi/main/docker-compose.yml
+```
+
+
+
 ```yaml
 version: '3.3'
 services:
@@ -110,13 +117,19 @@ To start the container run:
 $ sudo docker-compose up -d
 ```
 
+To pull latest image and upgrade the docker instance:
+```
+$ docker-compose pull && docker-compose up -d
+```
+
 ## Issues
 https://github.com/desertblade/oscar-pi/issues
 
 ## Contributers
-The following people created 80%+ of the source. I just modified it to support Raspberry Pi with the script to copy files over.
+The following people created 80%+ of the source. I modified it to support Raspberry Pi in my enviroment.
 
-Initial Dockerfile creation was done by [Roger Rumao ](https://github.com/rogerrum) --- https://github.com/rogerrum/docker-oscar
+Dockerfile using noVNC with Oscar, created by [Roger Rumao ](https://github.com/rogerrum) --- https://github.com/rogerrum/docker-oscar
+
 ezShare script created by [Biorn1950](https://github.com/Biorn1950) --- https://github.com/Biorn1950/EzShare-SdcardWifi-Downloader
 
 ## Software Licensing Information

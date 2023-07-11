@@ -4,8 +4,15 @@ services:
     image: desertblade/oscar-pi
     container_name: oscar
     restart: unless-stopped
+    network_mode: host  # May not be needed depends on Host Configuration
+    privileged: true # May not be needed depends on Host Configuration
     ports:
       - 8080:8080
     volumes:
       - /home/pi/oscar-data:/data:rw
       - /home/pi/SDCARD:/SDCARD:rw
+    environment:
+      TZ: "America/Los_Angeles"
+      # Optional
+      CRON_HOUR: 7
+      CRON_MIN: 30
