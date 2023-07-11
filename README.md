@@ -10,7 +10,7 @@
 
 A Raspberry Pi Docker image for **[OSCAR](https://www.sleepfiles.com/OSCAR/)** to run inside Docker container and access it remotely using web browser. Includes script to pull data from an ezShare wifi card, so no need to pull the SD Card out of the CPAP machine!
 
-Cron job is set to run every day at 7:30am to pull files from an [ezShare](https://www.aliexpress.us/item/2255800453813062.html) wifi SD card adpater. Planning on making configurable.
+Cron job configuarbel through enviroment variables to pull files from an [ezShare](https://www.aliexpress.us/item/2255800453813062.html) wifi SD card adpater. Planning on making configurable.
 
 Once everything is set up point your browser to http://192.168.xx.xx:8080 
 
@@ -110,6 +110,11 @@ services:
     volumes:
       - /home/pi/oscar-data:/data:rw
       - /home/pi/SDCARD:/SDCARD:rw
+    environment:
+      TZ: "America/Los_Angeles"
+      # Optional, if removed no Cronjob will be created
+      CRON_HOUR: 7
+      CRON_MIN: 30
 ```
 
 To start the container run:

@@ -13,6 +13,6 @@ services:
       - /home/pi/SDCARD:/SDCARD:rw
     environment:
       TZ: "America/Los_Angeles"
-      # Optional
+      # Optional, if removed no Cronjob will be created
       CRON_HOUR: 7
       CRON_MIN: 30
