@@ -41,13 +41,8 @@ COPY supervisord.conf /etc/
 # Adding Script to download from ezShare and setting up th Cron
 COPY ezShareDownloader.sh /opt/src/scripts/ezShareDownloader.sh
 RUN chmod 777 /opt/src/scripts/ezShareDownloader.sh
-RUN echo '30 7 * * * /opt/src/scripts/ezShareDownloader.sh 2>&1' >> /etc/cron.d/ezShare
- 
-# Give execution rights on the cron job
-RUN chmod 0644 /etc/cron.d/ezShare
-
-# Apply cron job
-RUN crontab /etc/cron.d/ezShare
+COPY create_cron.sh /opt/src/scripts/create_cron.sh
+RUN chmod 777 /opt/src/scripts/create_cron.sh
  
 EXPOSE 8080
 
@@ -58,4 +53,4 @@ RUN groupadd --gid 1000 app && \
 
 #VOLUME /data
 
-CMD ["sh", "-c", "cron && chown app:app /data /dev/stdout /SDCARD && exec gosu app supervisord"]
+CMD ["sh", "-c", "/opt/src/scripts/create_cron.sh && chown app:app /data /dev/stdout /SDCARD && exec gosu app supervisord"]
