@@ -57,13 +57,8 @@ network={
 Reboot Pi (sudo reboot). When its back up you should be able to SSH in and ping 192.168.4.1 which is the ezShare card.
 
 ### Install Docker
-I find the version of Docker included in Rasbpberry Pi's repos are fine. 
 
-From the command line run the following commands:
-```
-$ sudo apt update
-$ sudo apt install docker-compose
-```
+Follow instructions to install Docker from: https://docs.docker.com/engine/install/raspberry-pi-os/#install-using-the-repository
 
 ## Docker Run
 To simply do a quick and dirty run of the Oscar container:
@@ -119,12 +114,12 @@ services:
 
 To start the container run:
 ```
-$ sudo docker-compose up -d
+$ sudo docker compose up -d
 ```
 
 To pull latest image and upgrade the docker instance:
 ```
-$ sudo docker-compose pull && sudo docker-compose up -d
+$ sudo docker compose pull && sudo docker compose up -d
 ```
 
 ## Issues
