@@ -1,4 +1,4 @@
-FROM golang:bullseye AS easy-novnc-build
+FROM golang:bookworm AS easy-novnc-build
 WORKDIR /src
 
 RUN go mod init build && \
