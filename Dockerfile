@@ -1,4 +1,4 @@
-FROM golang:bookworm AS easy-novnc-build
+FROM debian:bookworm-slim AS easy-novnc-build
 WORKDIR /src
 
 RUN go mod init build && \
